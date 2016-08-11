@@ -1,0 +1,54 @@
+# Basic
+title: Welcome 
+subtitle: See What's Next！
+welcome_message:  ≡⊃ ⊂≡
+description: something soon 
+creator: <a href="http://xujingbao.me">@xujingbao</a>
+
+url: "https://xujingbao.me"
+
+permalink: /:year/:month/:title/
+
+# Format
+highlighter: plain
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", tables]
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: slate
+
+# The blog button should not be removed.
+blog_button:
+    title: Blog
+    description: Visit blog
+
+# Navigation buttons in the front page.
+nav:
+    - {title: Index, description: Soft Index, url: '/download'}
+    - {title: ETF, description: 低风险投资, url: 'https://www.jisilu.cn/data/etf/#index'}
+    - {title: Apple Develop, description: 苹果开发资源, url: 'https://developer.apple.com/develop/'}
+    - {title: Docker Hub, description: Docker私有仓库, url: '#'}
+
+# Pagination
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "page/:num/"
+
+# Comment
+comment:
+    disqus: vno-jekyll
+    # duoshuo: 
+    
+# Social
+social:
+    weibo: 
+    github: xujingbao
+    twitter: xujingbao
+    gplus: 
+    mail: xujingbao@gmail.com
+
+# Google Analytics
+ga:
+    # id: your_ga_id
+    # host: your_host
