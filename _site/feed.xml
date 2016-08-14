@@ -2,12 +2,178 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome</title>
-    <description>something soon</description>
+    <description>不明真相的许大宝，现居帝都。拙劣的赌徒、第三方支付平台架构师</description>
     <link>https://xujingbao.me/</link>
     <atom:link href="https://xujingbao.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Aug 2016 16:44:03 +0800</pubDate>
-    <lastBuildDate>Thu, 11 Aug 2016 16:44:03 +0800</lastBuildDate>
+    <pubDate>Sun, 14 Aug 2016 16:53:08 +0800</pubDate>
+    <lastBuildDate>Sun, 14 Aug 2016 16:53:08 +0800</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>在Docker中使用MySQL</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/images/20160814/mysql-logo.png&quot; alt=&quot;Gralde Logo&quot;&gt;  &lt;/p&gt;
+
+&lt;h4&gt;启动mysql&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;docker run \&lt;br&gt;
+--name sxf-fd-mysql \   #容器名称&lt;br&gt;
+-v /docker/mysqldata:/var/lib/mysql  \  #挂载卷&lt;br&gt;
+-e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码&lt;br&gt;
+-d \ #后台运行&lt;br&gt;
+-p 3306:3306 \ #端口映射&lt;br&gt;
+xujingbao/fd-mysql-5.6  #镜像  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;进入mysql&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;docker exec -it container-id bash&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;创建用户&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;CREATE USER &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;授权&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;grant all privileges on &lt;em&gt;.&lt;/em&gt; to &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;password&amp;#39;;&lt;br&gt;
+grant all privileges on &lt;em&gt;.&lt;/em&gt; to &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;password&amp;#39;;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;设置密码&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);&lt;br&gt;
+SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);&lt;br&gt;
+SET PASSWORD = PASSWORD(&amp;quot;newpassword&amp;quot;);&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 13 Aug 2016 23:38:24 +0800</pubDate>
+        <link>https://xujingbao.me/2016/08/docker-mysql/</link>
+        <guid isPermaLink="true">https://xujingbao.me/2016/08/docker-mysql/</guid>
+        
+        <category>docker mysql</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用Gradle Daemon加速项目构建</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/images/20160811/gradle-logo.jpg&quot; alt=&quot;Gralde Logo&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Gradle构建块&lt;/h3&gt;
+
+&lt;p&gt;每个Gradle构建都包含三个基本构建块：project，task和property。每个构建至少一个project，进而又包含一个或多个task。project和task暴露的属性可以用来控制构建。&lt;/p&gt;
+
+&lt;p&gt;在Gradle术语中，一个项目（project）代表一个正在构建的组件（比如，一个JAR文件），或一个想要完成的目标，如部署应用程序。每个Gradle构建脚本至少定义一个项目，当构建进程启动后，Gradle基于build.gradle中的配置实例化org.gradle.api.Project类，并且能够通过project变量使其隐式可用。&lt;/p&gt;
+
+&lt;p&gt;一个project可以创建新的task，添加依赖关系和配置，并应用插件和其他的构建脚本。
+&lt;img src=&quot;/assets/images/20160811/gradle_project.png&quot; alt=&quot;Gralde Project&quot;&gt;
+&lt;img src=&quot;/assets/images/20160811/gradle_class.png&quot; alt=&quot;Gralde Project&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;构建过程&lt;/h3&gt;
+
+&lt;p&gt;构建初始化的很多工作是Java虚拟机的启动，加载虚拟机环境，加载class文件。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;初始化-&amp;gt;配置阶段-&amp;gt;执行阶段&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Gradle Daemon介绍&lt;/h4&gt;
+
+&lt;p&gt;Gradle 守护进程（有时也称为构建守护进程） 的目的是改善 Gradle 的启动和执行时间。
+&lt;img src=&quot;/assets/images/20160811/gradle_fork.png&quot; alt=&quot;Gralde Project&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;配置与管理&lt;/h3&gt;
+
+&lt;h4&gt;使用Gradle命令行选项调用在单个构建时选择启用或禁用后台守护进程&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;gradle —daemon&lt;br&gt;
+gradle --no-daemon&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;两种推荐的方式使守护进程持续与环境&lt;/h4&gt;
+
+&lt;p&gt;通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识
+通过属性文件 - 给&amp;lt;&lt;GRADLE_USER_HOME&gt;&amp;gt;/gradle.properties文件
+添加org.gradle.daemon=true&lt;/p&gt;
+
+&lt;h4&gt;在Windows中，该命令将使当前用户启用守护：&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;(if not exist &amp;quot;%HOMEPATH%/.gradle&amp;quot; mkdir &amp;quot;%HOMEPATH%/.gradle&amp;quot;) &amp;amp;&amp;amp; (echo foo &amp;gt;&amp;gt; &amp;quot;%HOMEPATH%/.gradle/gradle.properties&amp;quot;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;在类Unix操作系统，以下的Bash shell命令将使当前用户启用守护进程：&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ouch ~/.gragradle/gradle.propertiesdle/gradle.properties &amp;amp;&amp;amp; echo &amp;quot;org.gradle.daemon=true&amp;quot; &amp;gt;&amp;gt; 
+~/.
+一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;使用注意事项&lt;/h3&gt;
+
+&lt;h4&gt;什么时候使用Gradle守护进程&lt;/h4&gt;
+
+&lt;p&gt;官方建议在开发环境中使用Gradle的守护进程,不建议在持续集成环境和构建服务器环境中使用守护进程.&lt;/p&gt;
+
+&lt;h4&gt;Gradle Daemon默认启用状态:&lt;/h4&gt;
+
+&lt;p&gt;1.IDE等工具默认使用Gradle进行构建
+2.命令行模式下，除非已经制定，否则不会使用Gradle Demon&lt;/p&gt;
+
+&lt;h4&gt;守护进程内存占用情况:&lt;/h4&gt;
+
+&lt;p&gt;JVM的最小堆内存 &amp;lt; Gradle Daemon &amp;lt; 1G的堆内存&lt;/p&gt;
+
+&lt;h4&gt;多个Daemon&lt;/h4&gt;
+
+&lt;p&gt;Daemon没有闲置或者版本不兼容等，启动新的Daemon&lt;/p&gt;
+
+&lt;h4&gt;关闭控制台提示&lt;/h4&gt;
+
+&lt;p&gt;通过-no daemon的命令行选项禁用,或将org.gradle.deamon的值设置为false&lt;/p&gt;
+</description>
+        <pubDate>Thu, 11 Aug 2016 14:32:24 +0800</pubDate>
+        <link>https://xujingbao.me/2016/08/gradle-deamon/</link>
+        <guid isPermaLink="true">https://xujingbao.me/2016/08/gradle-deamon/</guid>
+        
+        <category>Gradle</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>开始使用Jeklly写博客</title>
+        <description>&lt;p&gt;以前托管在github.io上的源码丢失了，只留下静态文件。所以重新用Vno Jekyll构建了新的Blog。&lt;/p&gt;
+
+&lt;h4&gt;站点历史&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2010/12月 开始博客，EW代理新网的域名服务，使用易联主机，Wordpress+MySQL&lt;/li&gt;
+&lt;li&gt;2013/1月  域名过期，域名服务迁移到万网&lt;/li&gt;
+&lt;li&gt;2013/8月  Wordpress迁移到Octopress，静态内容托管在Github&lt;/li&gt;
+&lt;li&gt;2013/10月 使用七牛云存储托管Octopress&lt;/li&gt;
+&lt;li&gt;2014/8月  迁移到Hexo，托管在Github&lt;/li&gt;
+&lt;li&gt;2015/6月  源码丢失&lt;/li&gt;
+&lt;li&gt;2016/7月  启用域名xujingbao.me&lt;/li&gt;
+&lt;li&gt;2016/8月  Jekyll + IdcBuster VPS + Nginx + Github&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 11 Aug 2016 14:32:24 +0800</pubDate>
+        <link>https://xujingbao.me/2016/08/begin-jeklly/</link>
+        <guid isPermaLink="true">https://xujingbao.me/2016/08/begin-jeklly/</guid>
+        
+        <category>Jekyll VPS Nginx Github</category>
+        
+        
+      </item>
     
       <item>
         <title>Hello World - Vno</title>
