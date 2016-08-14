@@ -174,31 +174,22 @@
 <h3>配置与管理</h3>
 
 <h4>使用Gradle命令行选项调用在单个构建时选择启用或禁用后台守护进程</h4>
-
-<blockquote>
-<p>gradle —daemon<br>
-gradle --no-daemon</p>
-</blockquote>
-
+<figure class="highlight"><pre><code class="language-text" data-lang="text">gradle —daemon 
+gradle --no-daemon
+</code></pre></figure>
 <h4>两种推荐的方式使守护进程持续与环境</h4>
 
-<p>通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识
+<p>通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识<br>
 通过属性文件 - 给&lt;<GRADLE_USER_HOME>&gt;/gradle.properties文件
 添加org.gradle.daemon=true</p>
 
 <h4>在Windows中，该命令将使当前用户启用守护：</h4>
-
-<blockquote>
-<p>(if not exist &quot;%HOMEPATH%/.gradle&quot; mkdir &quot;%HOMEPATH%/.gradle&quot;) &amp;&amp; (echo foo &gt;&gt; &quot;%HOMEPATH%/.gradle/gradle.properties&quot;)</p>
-</blockquote>
-
+<figure class="highlight"><pre><code class="language-text" data-lang="text">(if not exist &quot;%HOMEPATH%/.gradle&quot; mkdir &quot;%HOMEPATH%/.gradle&quot;) &amp;&amp; (echo foo &gt;&gt; &quot;%HOMEPATH%/.gradle/gradle.properties&quot;)  
+</code></pre></figure>
 <h4>在类Unix操作系统，以下的Bash shell命令将使当前用户启用守护进程：</h4>
-
-<blockquote>
-<p>ouch ~/.gragradle/gradle.propertiesdle/gradle.properties &amp;&amp; echo &quot;org.gradle.daemon=true&quot; &gt;&gt; 
-~/.
-一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.</p>
-</blockquote>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">ouch ~/.gragradle/gradle.propertiesdle/gradle.properties &amp;&amp; echo &quot;org.gradle.daemon=true&quot; &gt;&gt; ~/.
+</code></pre></figure>
+<p>一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.</p>
 
 <h3>使用注意事项</h3>
 
@@ -232,7 +223,7 @@ gradle --no-daemon</p>
    <div class="read-more-item">
        <span class="read-more-item-dim">最近的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2016/08/docker-mysql/" title="link to 在Docker中使用MySQL">在Docker中使用MySQL</a></h2>
-       <p class="excerpt">  启动mysqldocker run \--name sxf-fd-mysql \   #容器名称-v /docker/mysqldata:/var/lib/mysql  \  #挂载卷-e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码-d \ #后台运行-p 3306:3306 \ #端口映射xujingbao/fd-mysql-5.6  #镜像  进入mysqldocker exec -it container-id bash创建用户CREAT...&hellip;</p>
+     <!--   <p class="excerpt">  启动mysqldocker run \  --name sxf-fd-mysql \   #容器名称  -v /docker/mysqldata:/var/lib/mysql  \  #挂载卷  -e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码  -d \ #后台运行  -p 3306:3306 \ #端口映射  xujingbao/fd-mysql-5.6  #镜像  进入mysqldocker exec -it container-id b...&hellip;</p> -->
        <div class="post-list__meta"><time datetime="2016-08-13 23:38:24 +0800" class="post-list__meta--date date">2016-08-13</time> &#8226; <span class="post-list__meta--tags tags">docker mysql</span><a class="btn-border-small" href=/2016/08/docker-mysql/>继续阅读</a></div>
    </div>
    
@@ -242,7 +233,7 @@ gradle --no-daemon</p>
    <div class="read-more-item">
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2016/08/begin-jeklly/" title="link to 开始使用Jeklly写博客">开始使用Jeklly写博客</a></h2>
-       <p class="excerpt">以前托管在github.io上的源码丢失了，只留下静态文件。所以重新用Vno Jekyll构建了新的Blog。站点历史2010/12月 开始博客，EW代理新网的域名服务，使用易联主机，Wordpress+MySQL2013/1月  域名过期，域名服务迁移到万网2013/8月  Wordpress迁移到Octopress，静态内容托管在Github2013/10月 使用七牛云存储托管Octopress2014/8月  迁移到Hexo，托管在Github2015/6月  源码丢失2016/7月...&hellip;</p>
+<!--        <p class="excerpt">以前托管在github.io上的源码丢失了，只留下静态文件。所以重新用Vno Jekyll构建了新的Blog。站点历史2010/12月 开始博客，EW代理新网的域名服务，使用易联主机，Wordpress+MySQL2013/1月  域名过期，域名服务迁移到万网2013/8月  Wordpress迁移到Octopress，静态内容托管在Github2013/10月 使用七牛云存储托管Octopress2014/8月  迁移到Hexo，托管在Github2015/6月  源码丢失2016/7月...&hellip;</p> -->
        <div class="post-list__meta"><time datetime="2016-08-11 14:32:24 +0800" class="post-list__meta--date date">2016-08-11</time> &#8226; <span class="post-list__meta--tags tags">Jekyll VPS Nginx Github</span><a class="btn-border-small" href=/2016/08/begin-jeklly/>继续阅读</a></div>
    </div>
    

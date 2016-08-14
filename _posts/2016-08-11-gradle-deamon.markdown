@@ -25,21 +25,26 @@ Gradle 守护进程（有时也称为构建守护进程） 的目的是改善 Gr
 
 ### 配置与管理
 #### 使用Gradle命令行选项调用在单个构建时选择启用或禁用后台守护进程
-> gradle —daemon  
-> gradle --no-daemon
+
+```  
+gradle —daemon 
+gradle --no-daemon
+```  
 
 #### 两种推荐的方式使守护进程持续与环境
-通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识
+通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识  
 通过属性文件 - 给<<GRADLE_USER_HOME>>/gradle.properties文件
 添加org.gradle.daemon=true
 
 
 #### 在Windows中，该命令将使当前用户启用守护：
-> (if not exist "%HOMEPATH%/.gradle" mkdir "%HOMEPATH%/.gradle") && (echo foo >> "%HOMEPATH%/.gradle/gradle.properties")
-
+```  
+(if not exist "%HOMEPATH%/.gradle" mkdir "%HOMEPATH%/.gradle") && (echo foo >> "%HOMEPATH%/.gradle/gradle.properties")  
+```  
 #### 在类Unix操作系统，以下的Bash shell命令将使当前用户启用守护进程：
-> ouch ~/.gragradle/gradle.propertiesdle/gradle.properties && echo "org.gradle.daemon=true" >> 
-~/.
+``` 
+ouch ~/.gragradle/gradle.propertiesdle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.
+```
 一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.
 
 ### 使用注意事项

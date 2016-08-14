@@ -149,44 +149,31 @@
     <p><img src="/assets/images/20160814/mysql-logo.png" alt="Gralde Logo">  </p>
 
 <h4>启动mysql</h4>
-
-<blockquote>
-<p>docker run \<br>
---name sxf-fd-mysql \   #容器名称<br>
--v /docker/mysqldata:/var/lib/mysql  \  #挂载卷<br>
--e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码<br>
--d \ #后台运行<br>
--p 3306:3306 \ #端口映射<br>
-xujingbao/fd-mysql-5.6  #镜像  </p>
-</blockquote>
-
+<figure class="highlight"><pre><code class="language-text" data-lang="text">docker run \  
+--name sxf-fd-mysql \   #容器名称  
+-v /docker/mysqldata:/var/lib/mysql  \  #挂载卷  
+-e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码  
+-d \ #后台运行  
+-p 3306:3306 \ #端口映射  
+xujingbao/fd-mysql-5.6  #镜像  
+</code></pre></figure>
 <h4>进入mysql</h4>
 
-<blockquote>
-<p>docker exec -it container-id bash</p>
-</blockquote>
+<p><code>docker exec -it container-id bash</code></p>
 
 <h4>创建用户</h4>
 
-<blockquote>
-<p>CREATE USER &#39;username&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;</p>
-</blockquote>
+<p><code>CREATE USER &#39;username&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;</code> </p>
 
 <h4>授权</h4>
-
-<blockquote>
-<p>grant all privileges on <em>.</em> to &#39;username&#39;@&#39;%&#39; identified by &#39;password&#39;;<br>
-grant all privileges on <em>.</em> to &#39;username&#39;@&#39;localhost&#39; identified by &#39;password&#39;;</p>
-</blockquote>
-
+<figure class="highlight"><pre><code class="language-text" data-lang="text">grant all privileges on *.* to &#39;username&#39;@&#39;%&#39; identified by &#39;password&#39;;  
+grant all privileges on *.* to &#39;username&#39;@&#39;localhost&#39; identified by &#39;password&#39;;
+</code></pre></figure>
 <h4>设置密码</h4>
-
-<blockquote>
-<p>SET PASSWORD FOR &#39;username&#39;@&#39;%&#39; = PASSWORD(&quot;password&quot;);<br>
-SET PASSWORD FOR &#39;username&#39;@&#39;localhost&#39; = PASSWORD(&quot;password&quot;);<br>
-SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</p>
-</blockquote>
-
+<figure class="highlight"><pre><code class="language-text" data-lang="text">SET PASSWORD FOR &#39;username&#39;@&#39;%&#39; = PASSWORD(&quot;password&quot;);  
+SET PASSWORD FOR &#39;username&#39;@&#39;localhost&#39; = PASSWORD(&quot;password&quot;);  
+SET PASSWORD = PASSWORD(&quot;newpassword&quot;);
+</code></pre></figure>
   </section>
 </article>
 
@@ -198,7 +185,7 @@ SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</p>
    <div class="read-more-item">
        <span class="read-more-item-dim">更早的文章</span>
        <h2 class="post-list__post-title post-title"><a href="/2016/08/gradle-deamon/" title="link to 使用Gradle Daemon加速项目构建">使用Gradle Daemon加速项目构建</a></h2>
-       <p class="excerpt">Gradle构建块每个Gradle构建都包含三个基本构建块：project，task和property。每个构建至少一个project，进而又包含一个或多个task。project和task暴露的属性可以用来控制构建。在Gradle术语中，一个项目（project）代表一个正在构建的组件（比如，一个JAR文件），或一个想要完成的目标，如部署应用程序。每个Gradle构建脚本至少定义一个项目，当构建进程启动后，Gradle基于build.gradle中的配置实例化org.gradle.api...&hellip;</p>
+<!--        <p class="excerpt">Gradle构建块每个Gradle构建都包含三个基本构建块：project，task和property。每个构建至少一个project，进而又包含一个或多个task。project和task暴露的属性可以用来控制构建。在Gradle术语中，一个项目（project）代表一个正在构建的组件（比如，一个JAR文件），或一个想要完成的目标，如部署应用程序。每个Gradle构建脚本至少定义一个项目，当构建进程启动后，Gradle基于build.gradle中的配置实例化org.gradle.api...&hellip;</p> -->
        <div class="post-list__meta"><time datetime="2016-08-11 14:32:24 +0800" class="post-list__meta--date date">2016-08-11</time> &#8226; <span class="post-list__meta--tags tags">Gradle</span><a class="btn-border-small" href=/2016/08/gradle-deamon/>继续阅读</a></div>
    </div>
    

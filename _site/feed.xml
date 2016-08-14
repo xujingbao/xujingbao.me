@@ -5,8 +5,8 @@
     <description>不明真相的许大宝，现居帝都。拙劣的赌徒、第三方支付平台架构师</description>
     <link>https://xujingbao.me/</link>
     <atom:link href="https://xujingbao.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Aug 2016 16:53:08 +0800</pubDate>
-    <lastBuildDate>Sun, 14 Aug 2016 16:53:08 +0800</lastBuildDate>
+    <pubDate>Sun, 14 Aug 2016 17:07:25 +0800</pubDate>
+    <lastBuildDate>Sun, 14 Aug 2016 17:07:25 +0800</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -14,44 +14,31 @@
         <description>&lt;p&gt;&lt;img src=&quot;/assets/images/20160814/mysql-logo.png&quot; alt=&quot;Gralde Logo&quot;&gt;  &lt;/p&gt;
 
 &lt;h4&gt;启动mysql&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;docker run \&lt;br&gt;
---name sxf-fd-mysql \   #容器名称&lt;br&gt;
--v /docker/mysqldata:/var/lib/mysql  \  #挂载卷&lt;br&gt;
--e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码&lt;br&gt;
--d \ #后台运行&lt;br&gt;
--p 3306:3306 \ #端口映射&lt;br&gt;
-xujingbao/fd-mysql-5.6  #镜像  &lt;/p&gt;
-&lt;/blockquote&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;docker run \  
+--name sxf-fd-mysql \   #容器名称  
+-v /docker/mysqldata:/var/lib/mysql  \  #挂载卷  
+-e MYSQL_ROOT_PASSWORD=my-secret-pw \ #root密码  
+-d \ #后台运行  
+-p 3306:3306 \ #端口映射  
+xujingbao/fd-mysql-5.6  #镜像  
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h4&gt;进入mysql&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;docker exec -it container-id bash&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;docker exec -it container-id bash&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4&gt;创建用户&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;CREATE USER &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;CREATE USER &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;;&lt;/code&gt; &lt;/p&gt;
 
 &lt;h4&gt;授权&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;grant all privileges on &lt;em&gt;.&lt;/em&gt; to &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;password&amp;#39;;&lt;br&gt;
-grant all privileges on &lt;em&gt;.&lt;/em&gt; to &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;password&amp;#39;;&lt;/p&gt;
-&lt;/blockquote&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;grant all privileges on *.* to &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;password&amp;#39;;  
+grant all privileges on *.* to &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;password&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h4&gt;设置密码&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);&lt;br&gt;
-SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);&lt;br&gt;
-SET PASSWORD = PASSWORD(&amp;quot;newpassword&amp;quot;);&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;%&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);  
+SET PASSWORD FOR &amp;#39;username&amp;#39;@&amp;#39;localhost&amp;#39; = PASSWORD(&amp;quot;password&amp;quot;);  
+SET PASSWORD = PASSWORD(&amp;quot;newpassword&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</description>
         <pubDate>Sat, 13 Aug 2016 23:38:24 +0800</pubDate>
         <link>https://xujingbao.me/2016/08/docker-mysql/</link>
         <guid isPermaLink="true">https://xujingbao.me/2016/08/docker-mysql/</guid>
@@ -91,31 +78,22 @@ SET PASSWORD = PASSWORD(&amp;quot;newpassword&amp;quot;);&lt;/p&gt;
 &lt;h3&gt;配置与管理&lt;/h3&gt;
 
 &lt;h4&gt;使用Gradle命令行选项调用在单个构建时选择启用或禁用后台守护进程&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;gradle —daemon&lt;br&gt;
-gradle --no-daemon&lt;/p&gt;
-&lt;/blockquote&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;gradle —daemon 
+gradle --no-daemon
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h4&gt;两种推荐的方式使守护进程持续与环境&lt;/h4&gt;
 
-&lt;p&gt;通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识
+&lt;p&gt;通过环境变量 - 给GRADLE_OPTS环境变量添加-Dorg.gradle.daemon=true标识&lt;br&gt;
 通过属性文件 - 给&amp;lt;&lt;GRADLE_USER_HOME&gt;&amp;gt;/gradle.properties文件
 添加org.gradle.daemon=true&lt;/p&gt;
 
 &lt;h4&gt;在Windows中，该命令将使当前用户启用守护：&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;(if not exist &amp;quot;%HOMEPATH%/.gradle&amp;quot; mkdir &amp;quot;%HOMEPATH%/.gradle&amp;quot;) &amp;amp;&amp;amp; (echo foo &amp;gt;&amp;gt; &amp;quot;%HOMEPATH%/.gradle/gradle.properties&amp;quot;)&lt;/p&gt;
-&lt;/blockquote&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(if not exist &amp;quot;%HOMEPATH%/.gradle&amp;quot; mkdir &amp;quot;%HOMEPATH%/.gradle&amp;quot;) &amp;amp;&amp;amp; (echo foo &amp;gt;&amp;gt; &amp;quot;%HOMEPATH%/.gradle/gradle.properties&amp;quot;)  
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h4&gt;在类Unix操作系统，以下的Bash shell命令将使当前用户启用守护进程：&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ouch ~/.gragradle/gradle.propertiesdle/gradle.properties &amp;amp;&amp;amp; echo &amp;quot;org.gradle.daemon=true&amp;quot; &amp;gt;&amp;gt; 
-~/.
-一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ouch ~/.gragradle/gradle.propertiesdle/gradle.properties &amp;amp;&amp;amp; echo &amp;quot;org.gradle.daemon=true&amp;quot; &amp;gt;&amp;gt; ~/.
+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;一旦以这种方式在构建环境中启用了守护进程,所有的构建将隐含一个守护进程.&lt;/p&gt;
 
 &lt;h3&gt;使用注意事项&lt;/h3&gt;
 
