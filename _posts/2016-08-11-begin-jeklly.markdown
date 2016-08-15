@@ -5,7 +5,7 @@ date: 2016-08-11 15:32:24.000000000 +09:00
 tag: Jekyll VPS Nginx Github
 ---
 
-以前托管在github.io上的源码丢失了，只留下静态文件。所以重新用Vno Jekyll构建了新的Blog。
+以前托管在github.io上的源码丢失了，只留下静态文件 xujingbao.github.io。所以重新用Vno Jekyll构建了新的Blog。
 
 #### 站点历史
 
