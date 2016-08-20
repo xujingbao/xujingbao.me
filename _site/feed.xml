@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome</title>
-    <description>不明真相的许大宝，现居帝都。拙劣的赌徒、第三方支付平台架构师</description>
+    <description></description>
     <link>https://xujingbao.me/</link>
     <atom:link href="https://xujingbao.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Aug 2016 19:17:40 +0800</pubDate>
-    <lastBuildDate>Sun, 14 Aug 2016 19:17:40 +0800</lastBuildDate>
+    <pubDate>Sat, 20 Aug 2016 10:32:46 +0800</pubDate>
+    <lastBuildDate>Sat, 20 Aug 2016 10:32:46 +0800</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>

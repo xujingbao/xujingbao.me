@@ -1,8 +1,8 @@
 # Basic
 title: Welcome
 subtitle: func hey("See What's Next!")
-welcome_message: 关注移动端跨平台开发和容器技术。对低风险ETF指数化投资(股指、债券、贵金属、原油等ETF)比较感兴趣。
-description: 不明真相的许大宝，现居帝都。拙劣的赌徒、第三方支付平台架构师
+welcome_message: # 关注移动端跨平台开发和容器技术。对低风险ETF指数化投资(股指、债券、贵金属、原油等ETF)比较感兴趣。
+description: # 不明真相的许大宝，现居帝都。拙劣的赌徒、第三方支付平台架构师
 creator: <a href="http://xujingbao.me">@xujingbao</a>
 
 url: "https://xujingbao.me"
@@ -25,18 +25,6 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Index, description: Soft Index, url: '/download'}
-    - {title: ETF, description: 低风险投资, url: 'https://www.jisilu.cn/data/etf/#index'}
-    - {title: iDevelop, description: 苹果开发资源, url: 'https://developer.apple.com/develop/'}
-    - {title: Hub, description: Docker私有仓库, url: '#'}
-    - {title: Index, description: Soft Index, url: '/download'}
-    - {title: ETF, description: 低风险投资, url: 'https://www.jisilu.cn/data/etf/#index'}
-    - {title: iDevelop, description: 苹果开发资源, url: 'https://developer.apple.com/develop/'}
-    - {title: Hub, description: Docker私有仓库, url: '#'}
-    - {title: Index, description: Soft Index, url: '/download'}
-    - {title: ETF, description: 低风险投资, url: 'https://www.jisilu.cn/data/etf/#index'}
-    - {title: iDevelop, description: 苹果开发资源, url: 'https://developer.apple.com/develop/'}
-    - {title: Hub, description: Docker私有仓库, url: '#'}
     - {title: Index, description: Soft Index, url: '/download'}
     - {title: ETF, description: 低风险投资, url: 'https://www.jisilu.cn/data/etf/#index'}
     - {title: iDevelop, description: 苹果开发资源, url: 'https://developer.apple.com/develop/'}
