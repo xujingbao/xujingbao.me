@@ -6,9 +6,10 @@
 - [releases](https://www.awesomes.cn/releases) 一网打尽最近5天发布的关注量>1000的前端库版本更新
 - [MDN Web](https://developer.mozilla.org/zh-CN/docs/Web) Mozilla Web技术文档
 - [Vue.js](https://github.com/vuejs/awesome-vue)
+- [React.js](https://facebook.github.io/react/)
+- [Angular2](https://github.com/AngularClass/awesome-angular2)
 - [es6-tools](https://github.com/addyosmani/es6-tools)
 - [Exploring ES6](http://exploringjs.com/es6/index.html#toc_ch_about-es6)
-- [Angular2](https://github.com/AngularClass/awesome-angular2)
 - [NodeJS](https://nodejs.org/zh-cn/)
 - [Grails](http://docs.grails.org/latest/guide/index.html)
 - [Groovy](http://groovy-lang.org/single-page-documentation.html)
@@ -21,6 +22,7 @@
 
 - [Apple developer](https://developer.apple.com/)
 - [Google developer](https://developers.google.com/china/?hl=zh-cn)
+- [React Native](http://facebook.github.io/react-native/)
 
 ### Js Lib
 
@@ -34,7 +36,8 @@
 - [Element](http://element.eleme.io/#/zh-CN/component/changelog)  饿了么组件库
 - [Mint-UI](http://mint-ui.github.io/#!/en) Mobile UI elements for Vue.js
 - [weui](http://weui.github.io/weui/) 微信官方设计团队为微信 Web 开发量身打造的框架
-- [Ant Design](https://github.com/websemantics/awesome-ant-design)
+- [Ant Design](https://ant.design/docs/react/introduce-cn) Ant Design 的 React 实现，开发和服务于企业级后台产品
+- [Ant Design Mobile](https://mobile.ant.design/docs/react/introduce) Ant Design 的移动规范的 React 实现
 - [Google Design](https://design.google.com/)
 - [Material Theme](http://equinsuocha.io/material-theme/#/default)
 
@@ -56,42 +59,44 @@
 
 ### Cli Tools
 
-- npm
-- bower
-- nvm
-- nrm
-- sdkman
-- gradle
-- gulp
-- webpack
+- [npm](https://www.npmjs.com/)
+- [bower](https://bower.io/)
+- [nvm](https://github.com/creationix/nvm) Node Version Manager
+- [nrm](https://github.com/Pana/nrm) NPM registry manager
+- [sdkman](sdkman.io/) the Software Development Kit Manager
+- [gradle](https://gradle.org/) Build Anything
+- [gulp](http://gulpjs.com/) Automate and enhance your workflow
+- [webpack](https://doc.webpack-china.org/) Bundle Your **
 - [json-server](https://github.com/typicode/json-server) Get a full fake REST API with zero coding
-- [lighthouse](https://github.com/GoogleChrome/lighthouse) Auditing, performance metrics, and best practices for Progressive Web Apps
+- [lighthouse](https://github.com/GoogleChrome/lighthouse) PWA Tools
 
 ### Dev IDE
 
-- Dash 文档神器
+- [Dash](https://kapeli.com/dash) API Documentation Browser and Code Snippet Manager
 - [VSCode](https://code.visualstudio.com/)
-- IntelliJ IDEA
-- Android Studio
-- SourceTree
-- MySQLWorkbench
-- Google Chrome
-- Xcode
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+- [Android Studio](https://developer.android.com/studio/index.html?hl=zh-cn)
+- [SourceTree](https://www.sourcetreeapp.com/)
+- [MySQLWorkbench](https://www.mysql.com/products/workbench/)
+- [Google Chrome](http://www.google.cn/chrome/browser/desktop/index.html)
+- [Xcode](https://developer.apple.com/xcode/)
 
 ### Mac efficiency soft
 
 - [Google Doc](https://drive.google.com/drive/my-drive)
 - [Google Mail](https://mail.google.com/mail/u/0/#inbox)
-- Bartender 2
-- OmniFocus
-- OmniOutliner
-- OmniGraffle
-- OmniPlan
-- XMind
-- Moom
-- Evernote
-- Typora
-- 1Password 6
+- [Bartender](https://www.macbartender.com/)
+- [OmniFocus](https://www.omnigroup.com/)
+- [OmniOutliner](https://www.omnigroup.com/)
+- [OmniGraffle](https://www.omnigroup.com/)
+- [OmniPlan](https://www.omnigroup.com/)
+- [XMind](http://www.xmind.net/)
+- [Moom](https://itunes.apple.com/us/app/moom/id419330170?mt=12)
+- [Sip](http://sipapp.io/)
+- [Postman](https://www.getpostman.com/)
+- [Evernote](https://evernote.com/intl/zh-cn/)
+- [Typora](https://www.typora.io/)
+- [1Password](https://1password.com/extlink/signin/)
 - [ShadowsocksX](https://portal.shadowsocks.com/clientarea.php?action=services)
 
 ### Online Tools
